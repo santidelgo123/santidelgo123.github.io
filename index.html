@@ -7,19 +7,66 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; }
-        .hero { background: linear-gradient(135deg, #0d6efd 0%, #0a429b 100%); color: white; padding: 100px 0; }
-        .skill-badge { background-color: #e9ecef; color: #0d6efd; border: 1px solid #0d6efd; margin: 5px; padding: 10px 20px; border-radius: 50px; display: inline-block; font-weight: 500; }
-        .project-card { transition: transform 0.3s; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .project-card:hover { transform: translateY(-10px); }
-        footer { background-color: #212529; color: white; padding: 40px 0; }
+        :root {
+            --primary-color: #0d6efd;
+            --dark-color: #212529;
+        }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f8f9fa; 
+            scroll-behavior: smooth;
+        }
+        /* Estilo de la cabecera */
+        .hero { 
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); 
+            color: white; 
+            padding: 120px 0; 
+        }
+        /* Estilo de las etiquetas de habilidades */
+        .skill-badge { 
+            background-color: #ffffff; 
+            color: #0d6efd; 
+            border: 1px solid #0d6efd; 
+            margin: 5px; 
+            padding: 10px 20px; 
+            border-radius: 50px; 
+            display: inline-block; 
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .skill-badge:hover {
+            background-color: #0d6efd;
+            color: white;
+        }
+        /* Tarjetas de proyectos */
+        .project-card { 
+            transition: transform 0.3s, box-shadow 0.3s; 
+            border: none; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .project-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            background-color: #e9ecef; /* Color de fondo si no hay imagen aún */
+        }
+        footer { 
+            background-color: #212529; 
+            color: white; 
+            padding: 60px 0; 
+        }
     </style>
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand font-weight-bold" href="#">SDG</a>
+            <a class="navbar-brand fw-bold" href="#">SDG</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,20 +84,26 @@
     <header class="hero text-center">
         <div class="container">
             <h1 class="display-3 fw-bold">Santiago Delgado Gomez</h1>
-            <p class="lead">Estudiante de Ingeniería Electrónica con bases en Electrónica Digital y Control</p>
-            <a href="#proyectos" class="btn btn-outline-light btn-lg mt-3">Ver Proyectos</a>
+            <p class="lead fs-3">Estudiante de Ingeniería Electrónica</p>
+            <p class="text-light opacity-75">Bases en Electrónica Digital, Control y Sistemas Analógicos</p>
+            <a href="#proyectos" class="btn btn-outline-light btn-lg mt-4 px-5">Explorar Proyectos</a>
         </div>
     </header>
 
     <section id="sobre-mi" class="py-5">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <h2 class="mb-4 text-primary">Sobre Mí</h2>
-                    <p class="fs-5">
-                        Lo que más me entusiasma de la electrónica es el mundo de tan infinitas posibilidades de creación, 
-                        y el campo de acción tan amplio que tiene a nivel mundial. Como estudiante de ingeniería, me enfoco 
-                        en transformar ideas complejas en soluciones tangibles mediante el diseño digital y el control.
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center">
+                    <h2 class="mb-4 text-primary fw-bold">Sobre Mí</h2>
+                    <p class="fs-5 leading-relaxed">
+                        Lo que más me entusiasma de la electrónica es el mundo de tan <strong>infinitas posibilidades de creación</strong> 
+                        y su impacto global. Como estudiante de ingeniería, me enfoco en la integración de sistemas 
+                        <strong>digitales y de control</strong>, complementados con bases sólidas en <strong>electrónica analógica</strong>, 
+                        específicamente en el diseño y aplicación de configuraciones con <strong>amplificadores operacionales</strong>.
+                    </p>
+                    <p class="fs-5 text-muted">
+                        Mi objetivo es transformar ideas abstractas en prototipos funcionales, aprovechando la versatilidad de los 
+                        dispositivos electrónicos para solucionar problemas del mundo real.
                     </p>
                 </div>
             </div>
@@ -59,49 +112,74 @@
 
     <section id="habilidades" class="py-5 bg-white">
         <div class="container">
-            <h2 class="mb-4 text-primary">Habilidades Técnicas</h2>
-            <div class="d-flex flex-wrap">
-                <span class="skill-badge">Proteus</span>
-                <span class="skill-badge">KiCad</span>
-                <span class="skill-badge">EasyEDA</span>
-                <span class="skill-badge">Arduino</span>
-                <span class="skill-badge">MATLAB</span>
-                <span class="skill-badge">PIC C Compiler</span>
+            <h2 class="mb-5 text-primary fw-bold text-center">Habilidades Técnicas</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h4 class="mb-3"><span class="material-symbols-outlined align-middle">code</span> Software & Simulación</h4>
+                    <div class="d-flex flex-wrap">
+                        <span class="skill-badge">Proteus</span>
+                        <span class="skill-badge">KiCad</span>
+                        <span class="skill-badge">EasyEDA</span>
+                        <span class="skill-badge">MATLAB</span>
+                        <span class="skill-badge">PIC C Compiler</span>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <h4 class="mb-3"><span class="material-symbols-outlined align-middle">memory</span> Hardware & Áreas</h4>
+                    <div class="d-flex flex-wrap">
+                        <span class="skill-badge">Arduino</span>
+                        <span class="skill-badge">Electrónica Analógica</span>
+                        <span class="skill-badge">Amplificadores Operacionales</span>
+                        <span class="skill-badge">Electrónica Digital</span>
+                        <span class="skill-badge">Sistemas de Control</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="proyectos" class="py-5">
         <div class="container">
-            <h2 class="mb-5 text-primary text-center">Proyectos del Semestre</h2>
+            <h2 class="mb-5 text-primary fw-bold text-center">Proyectos Destacados</h2>
             <div class="row g-4">
                 
                 <div class="col-md-6 col-lg-4">
                     <div class="card h-100 project-card">
+                        <div class="card-img-top d-flex align-items-center justify-content-center text-muted border-bottom">
+                            <span>Imagen del Proyecto</span>
+                        </div>
                         <div class="card-body">
                             <h5 class="card-title fw-bold">Nombre del Proyecto 1</h5>
-                            <p class="card-text text-muted">Descripción breve de lo que hiciste en este proyecto (ej: Diseño de un contador digital).</p>
-                            <span class="badge bg-primary">Digital</span>
-                            <span class="badge bg-secondary">Proteus</span>
+                            <p class="card-text">Explica brevemente qué resolviste aquí. Ejemplo: Diseño de un filtro activo usando Op-Amps.</p>
+                            <div class="mt-3">
+                                <span class="badge bg-primary">Analógica</span>
+                                <span class="badge bg-secondary">Proteus</span>
+                            </div>
                         </div>
-                        <div class="card-footer bg-transparent border-0">
-                            <a href="#" class="btn btn-sm btn-outline-primary">Detalles</a>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <a href="#" class="btn btn-sm btn-outline-primary w-100">Ver Detalles Técticos</a>
                         </div>
                     </div>
                 </div>
-
                 </div>
         </div>
     </section>
 
     <footer id="contacto">
         <div class="container text-center">
-            <h3>¿Hablamos?</h3>
-            <p>Disponible para colaboraciones y proyectos de ingeniería.</p>
-            <div class="mt-4">
-                <p>Email: <strong>tu-correo@ejemplo.com</strong></p>
+            <h2 class="fw-bold mb-4">¿Interesado en trabajar juntos?</h2>
+            <p class="lead mb-4">Actualmente estoy abierto a proyectos y colaboraciones académicas o profesionales.</p>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <p class="mb-1 text-muted text-uppercase small">Correo Electrónico</p>
+                    <h5 class="mb-4">tu-correo@estudiante.com</h5>
                 </div>
-            <p class="mt-5 text-muted">&copy; 2024 Santiago Delgado Gomez</p>
+            </div>
+            <div class="mt-4">
+                <a href="#" class="text-white mx-3 text-decoration-none">LinkedIn</a>
+                <a href="#" class="text-white mx-3 text-decoration-none">GitHub</a>
+            </div>
+            <p class="mt-5 text-muted" style="font-size: 0.8rem;">&copy; 2024 Santiago Delgado Gomez | Portafolio de Ingeniería</p>
         </div>
     </footer>
 
